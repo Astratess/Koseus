@@ -1,0 +1,220 @@
+/* ------------------------------------------------------------ *\
+	Hero
+\* ------------------------------------------------------------ */
+
+.hero {
+	font-family: 'Norse';
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(#060707, 0.9);
+	background-image: url(../images/temp/background.jpg);
+	background-size: cover;
+	background-blend-mode: darken;
+	overflow: hidden;
+
+	h2 {
+		font-size: 14rem;
+		position: relative;
+		opacity: 0;
+		animation: 2s opacity 2.25s linear forwards;
+
+		&:before {
+			content: attr(data-latin);
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			font-size: 7rem;
+			color: rgba(#837b73, .5);
+			z-index: -1;
+			opacity: 0;
+			animation: 2s opacity 2.5s linear forwards;
+		}
+	}
+
+	strong {
+		display: inline-block;
+		position: relative;
+
+		&:after,
+		&:before {
+			content: '';
+			background: url(../images/temp/wing.png);
+			background-size: cover;
+			position: absolute;
+			top: 0%;
+			transform: translateY(-60%);
+			width: 15rem;
+			height: 25rem;
+			opacity: 0;
+			z-index: -1;
+		}
+
+		&:before {
+			right: 102%;
+			animation: .75s rotateLeft 4s linear forwards;
+		}
+
+		&:after {
+			left: 104%;
+			transform: translateY(-60%) rotateY(180deg);
+			animation: .75s rotateRight 4s linear forwards;
+		}
+	}
+
+	p {
+		padding-top: 20rem;
+		margin-bottom: 15rem;
+		opacity: 0;
+		animation: 2s opacity 2.75s linear forwards;
+	}
+
+	.visit {
+		opacity: 0;
+		animation: 2s opacity 3s linear forwards;
+	}
+
+	.hero__background {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+	.hero__part-image {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%,- 40%);
+		z-index: 4;
+		animation: 2s sun ease-in forwards;
+	}
+
+	.hero__image {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, 100%);
+		width: 70rem;
+		height: 90vh;
+		z-index: 2;
+		pointer-events: none;
+		animation: 2.5s figure ease-in forwards;
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.hero__inner {
+		padding-inline: 20rem;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 90%;
+		height: 90%;
+		background: linear-gradient(to bottom, rgba(#050505, .7), rgba(#161616, 0.4));
+		border-radius: 4rem;
+		backdrop-filter: blur(1rem);
+		clip-path: polygon(50% 35%, 70% 0, 100% 0, 100% 100%, 0 100%, 0 0, 30% 0);
+	}
+
+	.hero__actions {
+		flex: 0 0 40rem;
+		text-align: center;
+	}
+
+	.hero__arrows {
+		position: absolute;
+		right: 5rem;
+		bottom: 4rem;
+		font-size: 4rem;
+		display: flex;
+		gap: 4rem;
+	}
+
+	.hero__bar {
+		position: absolute;
+		bottom: 5rem;
+		left: 5rem;
+		width: 30rem;
+		height: .6rem;
+		background-color: #222222;
+	}
+
+	.hero__bar-inner {
+		position: absolute;
+		left: 0;
+		display: inline-block;
+		width: 7.5rem;
+		height: 100%;
+		background-color: rgba(#AD7430, .4);
+	}
+}
+
+@keyframes sun {
+	from {
+		transform: translate(-50%, -100%);
+	}
+
+	to {
+		transform: translate(-50%, -40%);
+	}
+}
+
+@keyframes figure {
+	from {
+		transform: translate(-50%, 100%);
+	}
+
+	to {
+		transform: translate(-50%, -40%);
+	}
+}
+
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes rotateLeft {
+	from {
+		opacity: 0;
+		transform: translateY(-10%) rotate(-45deg);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(-60%) rotate(0deg);
+	}
+}
+
+@keyframes rotateRight {
+	from {
+		opacity: 0;
+		transform: translateY(-10%) rotateZ(45deg) rotateY(180deg);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(-60%) rotateZ(0deg) rotateY(180deg);
+	}
+}
